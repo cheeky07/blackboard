@@ -1,11 +1,9 @@
 import {
     getHeight,
-    getWidth,
-    Point
+    getWidth
 } from "./utils.js";
 
 let pen;
-var last = null;
 var pendown;
 
 function main() {
@@ -19,26 +17,26 @@ function main() {
     pen.lineWidth = 5;
     pen.lineJoin = "round";
     pen.strokeStyle = "white";
-    canvas.addEventListener('mousedown',penDown);
-    canvas.addEventListener('mousemove',penMove);
-    canvas.addEventListener('mouseup',penUp);
+    canvas.addEventListener('mousedown', penDown);
+    canvas.addEventListener('mousemove', penMove);
+    canvas.addEventListener('mouseup', penUp);
 }
 
-function penDown(event){
+function penDown(event) {
     pen.moveTo(event.pageX, event.pageY);
     pen.beginPath();
     pendown = 1;
 }
 
-function penMove(event){
-    if(pendown){
+function penMove(event) {
+    if (pendown) {
         pen.lineTo(event.pageX, event.pageY);
+        pen.stroke();
     }
 }
 
-function penUp(event){
+function penUp() {
     pendown = 0;
-    pen.stroke();   
 }
 
 
