@@ -1,6 +1,7 @@
 import {
     getHeight,
-    getWidth
+    getWidth,
+    Point
 } from "./utils.js";
 
 import {
@@ -9,6 +10,8 @@ import {
 
 let pen;
 var pendown;
+var currentStroke, point;
+
 
 function main() {
 
@@ -28,6 +31,8 @@ function main() {
 
 function penDown(event) {
     pen.moveTo(event.pageX, event.pageY);
+    currentStroke = new Stroke();
+    currentStroke.points.push(new Point(event.pageX, event.pageY));
     pen.beginPath();
     pendown = 1;
 }
@@ -36,10 +41,11 @@ function penMove(event) {
     if (pendown) {
         pen.lineTo(event.pageX, event.pageY);
         pen.stroke();
+        currentStroke.points.push(new Point(event.pageX, event.pageY));
     }
 }
 
-function penUp() {
+function penUp(event) {
     pendown = 0;
 }
 
