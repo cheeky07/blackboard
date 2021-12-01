@@ -3,6 +3,10 @@ import {
     getWidth
 } from "./utils.js";
 
+import {
+    Stroke,
+} from "./stroke.js";
+
 let pen;
 var pendown;
 
