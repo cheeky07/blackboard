@@ -1,7 +1,6 @@
 import {
     getHeight,
     getWidth,
-    Point
 } from "./utils.js";
 
 import {
@@ -10,7 +9,7 @@ import {
 
 let pen, lpen, height, width;
 var pendown;
-var currentStroke, point;
+var currentStroke;
 
 
 function main() {
@@ -47,7 +46,7 @@ function penMove(event) {
     }
 }
 
-function penUp(event) {
+function penUp() {
     pendown = 0;
     currentStroke.draw(pen);
     lpen.clearRect(0, 0, width, height);
