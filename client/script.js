@@ -40,9 +40,10 @@ function penDown(event) {
 
 function penMove(event) {
     if (pendown) {
+        // console.log(event.pageX, event.pageY);
         lpen.lineTo(event.pageX, event.pageY);
         lpen.stroke();
-        currentStroke.points.push(new Point(event.pageX, event.pageY));
+        currentStroke.addPoint(event.pageX, event.pageY);
     }
 }
 

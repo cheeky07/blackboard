@@ -1,7 +1,17 @@
+import { Point } from "./utils.js";
 class Stroke {
     constructor() {
         this.points = [];
     }
+    addPoint(x, y) {
+        if (x == this.lastx && y == this.lasty) {
+            return;
+        }
+        this.points.push(new Point(x, y));
+        this.lastx = x;
+        this.lasty = y;
+    }
+
     draw(pen) {
         if (this.points.length < 2)
             return;
