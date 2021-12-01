@@ -33,7 +33,6 @@ function main() {
 
 function penDown(event) {
     currentStroke = new Stroke();
-    currentStroke.points.push(new Point(event.pageX, event.pageY));
     lpen.moveTo(event.pageX, event.pageY);
     lpen.beginPath();
     pendown = 1;
